@@ -1,6 +1,28 @@
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
+##
+
+STEP 2:  Create folder on your PC and open that folder in vs code. 
+
+STEP 3:  Open Terminal in vs code and Run these commands
+git clone https://github.com/ShivamPal7/lms-platform.git
+
+cd lms-platform
+
+npm install
+
+npm run dev
+
+git switch -C feature/yourname-test
+Step 4: change the code of app/page.tsx and add your own <p> tag like Shubham test
+git add .
+
+git commit -m “yourname Test”
+
+git push -u origin feature/yourname-test
+
 ## Getting Started
+
 
 First, run the development server:
 
