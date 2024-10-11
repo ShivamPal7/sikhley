@@ -5,7 +5,7 @@ export default function Home() {
   return (
     <div>
       <p className="text-3xl font-semibold text-sky-700">Hello World</p>
-      <Button>Click me</Button>
+      <Button variant="destructive">Click me</Button>
     </div>
     
   );
