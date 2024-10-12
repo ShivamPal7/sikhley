@@ -18,8 +18,5 @@ export const config = {
 }
 
 
-// Tujhme raat meri tujhme din mera 
-// tere bin jiya na jaye ab tera 
-// tere saath safar mujhe jana hai kidhar i don't know
 
 
