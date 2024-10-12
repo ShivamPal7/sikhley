@@ -59,6 +59,6 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
 # lms-platform
 
 # login cmd
- npm install @clerk/nextjs
+npm install @clerk/nextjs
 
  
