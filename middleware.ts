@@ -24,3 +24,5 @@ export const config = {
 // export const config = {
 //   matcher:["/((?!.*\\..*|_next).*","/","/(api|trpc)(.*)"],
 // }
+
+//Pagal Techzy 
