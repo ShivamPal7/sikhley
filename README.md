@@ -21,9 +21,9 @@ git commit -m “yourname Test”
 
 git push -u origin feature/yourname-test
 
-## Getting Started 
+## Getting Started hi
 
-## Zindagi zand fir bhi aniket
+
 First, run the development server:
 
 ```bash

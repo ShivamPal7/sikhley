@@ -10,6 +10,7 @@ import {
   UserButton
 } from '@clerk/nextjs'
 import './globals.css'
+import { ToastProvider } from "@/components/providers/toaster-provider";
 export default function RootLayout({
   children,
 }: {
@@ -25,6 +26,7 @@ export default function RootLayout({
           <SignedIn>
             <UserButton />
           </SignedIn>
+          <ToastProvider />
           {children}
         </body>
       </html>
