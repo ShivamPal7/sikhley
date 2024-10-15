@@ -4,10 +4,10 @@ import "./globals.css";
 // import { ClerkProvider}from '@clerk/nextjs'
 import {
   ClerkProvider,
-  SignInButton,
+  // SignInButton,
   SignedIn,
   SignedOut,
-  UserButton
+  // UserButton
 } from '@clerk/nextjs'
 import './globals.css'
 import { ToastProvider } from "@/components/providers/toaster-provider";
@@ -21,10 +21,10 @@ export default function RootLayout({
       <html lang="en">
         <body>
           <SignedOut>
-            <SignInButton />
+            {/* <SignInButton /> */}
           </SignedOut>
           <SignedIn>
-            <UserButton />
+            {/* <UserButton /> */}
           </SignedIn>
           <ToastProvider />
           {children}

@@ -28,7 +28,9 @@ export const NavbarRoutes = () => {
                     </Button>
                 </Link>
             )}
-            <UserButton afterSignOutUrl="/" />
+            <div className="flex items-center justify-center">
+                <UserButton afterSignOutUrl="/" />
+            </div>  
         </div>
     );
 };
