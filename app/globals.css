@@ -3,7 +3,8 @@
 @tailwind utilities;
 
 html,
-css,
+body,
+
 :root{
   height: 100%;
 }
@@ -82,3 +83,4 @@ body {
     @apply bg-background text-foreground;
   }
 }
+
