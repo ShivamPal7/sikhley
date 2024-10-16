@@ -39,8 +39,9 @@ const CreatePage = () => {
 
     const onSubmit = async (values: z.infer<typeof formSchema>) => {
         try {
-            const response = await axios.post("/api/course", values);
+            const response = await axios.post("/api/courses", values);
             router.push(`/teacher/courses/${response.data.id}`); // Use backticks for template literal
+            toast.success("Couse Created!")
         } catch {
             toast.error("Something went wrong");
         }
@@ -116,7 +117,7 @@ export default CreatePage;
 //     FormItem,
 //     FormLabel,
 //     FormMessage,
-// }from "@/components/ui/form";
+// } from "@/components/ui/form";
 // import { Button } from "@/components/ui/button";
 // import { Input } from "@/components/ui/input";
 // import { title } from "process";
@@ -138,12 +139,12 @@ export default CreatePage;
 //         },
 //     });
 
-//     const { isSubmitting , isValid } form.formState;
+//     const { isSubmitting , isValid } = form.formState;
 
 //     const onSubmit = async (values: z.infer<typeof formSchema>) =>{
 //         try {
 //             const response = await axios.post("/api/course", values);
-//             router.push('/teacher/courses/${response.data.id}');
+//             router.push(`/teacher/courses/${response.data.id}`);
            
 //         } catch{
 //             toast.error("Something went wrong");
