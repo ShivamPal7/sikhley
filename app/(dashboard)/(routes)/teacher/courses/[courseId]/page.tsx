@@ -4,11 +4,12 @@ import { auth } from "@clerk/nextjs/server";
 import { CircleDollarSign, File, LayoutDashboard, ListChecks } from "lucide-react";
 import { redirect } from "next/navigation";
 import { TitleForm } from "./_components/title-form";
-import { DescriptionForm } from "./_components/description-form.tsx";
+// import { DescriptionForm } from "./_components/description-form.tsx";
 import { ImageForm } from "./_components/image-form";
 import { CategoryForm } from "./_components/category-form";
 import { PriceForm } from "./_components/price-form";
 import { AttachmentForm } from "./_components/attachment-form";
+import { ChaptersForm } from "./_components/chapters-form";
 
 
 const CourseIdPage = async ({
@@ -25,8 +26,15 @@ const CourseIdPage = async ({
     const course = await db.course.findUnique({
         where: {
             id: params.courseId
+            userId
         },
         include: {
+            chapters: {
+                orderBy: {
+                    position:"asc",
+                },
+
+            },
             attachments: {
                 orderBy: {
                     createdAt: "desc",
@@ -51,6 +59,7 @@ const CourseIdPage = async ({
         course.price,
         course.imageUrl,
         course.categoryId
+        course.chapters.some(chapter => chapter.isPublished),
     ];
 
     const totalFields = requiredFields.length;
@@ -80,7 +89,7 @@ const CourseIdPage = async ({
                         initialData={course}
                         courseId={course.id}
                     />
-                    <DescriptionForm
+                    <ChaptersForm
                         initialData={course}
                         courseId={course.id}
                     />
@@ -105,9 +114,10 @@ const CourseIdPage = async ({
                                 Course Chapters
                             </h2>
                         </div>
-                        <div>
-                            TODO: Chapters
-                        </div>
+                        <ChaptersForm
+                        initialData={course}
+                        courseId={course.id}
+                    />
                     </div>
                     <div>
                         <div className="flex items-center gap-x-2">
