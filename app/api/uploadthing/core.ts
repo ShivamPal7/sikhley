@@ -26,3 +26,5 @@ export const ourFileRouter = {
 } satisfies FileRouter;
 
 export type OurFileRouter = typeof ourFileRouter;
+
+console.log("Handling courseImage upload");
