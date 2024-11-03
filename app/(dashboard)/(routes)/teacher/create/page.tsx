@@ -41,7 +41,7 @@ const CreatePage = () => {
         try {
             const response = await axios.post("/api/courses", values);
             router.push(`/teacher/courses/${response.data.id}`); // Use backticks for template literal
-            toast.success("Couse Created!")
+            toast.success("Course Created!")
         } catch {
             toast.error("Something went wrong");
         }
