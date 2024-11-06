@@ -1,4 +1,5 @@
 import { IconBadge } from "@/components/icon-badge";
+import { Banner } from "@/components/banner";
 import { db } from "@/lib/db";
 import { auth } from "@clerk/nextjs/server";
 import { CircleDollarSign, File, LayoutDashboard, ListChecks } from "lucide-react";
@@ -11,6 +12,7 @@ import { PriceForm } from "./_components/price-form";
 import { AttachmentForm } from "./_components/attachment-form";
 import { ChaptersForm } from "./_components/chapters-form";
 import { DescriptionForm} from "./_components/description-form";
+
 
 
 const CourseIdPage = async ({
@@ -68,7 +70,18 @@ const CourseIdPage = async ({
 
     const completionText = `(${completedFields}/${totalFields})`;
 
+    const isComplete = requiredFields.every(Boolean)
+
+
     return (
+        <>
+        {! course.isPublished &&
+        (
+            <Banner 
+             label="This Course is Unpublished.It will not be visible to students"
+             
+             />
+        )}
         <div className="p-6">
             <div className="flex items-center justify-between">
                 <div className="flex flex-col gap-y-2">
@@ -147,6 +160,7 @@ const CourseIdPage = async ({
                 </div>
             </div>
         </div>
+        </>
     );
 }
 
