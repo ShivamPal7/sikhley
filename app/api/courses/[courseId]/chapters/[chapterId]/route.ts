@@ -6,7 +6,7 @@ import { NextResponse } from "next/server";
 // import CourseIdPage from "@/app/(dashboard)/(routes)/teacher/courses/[courseId]/page";
 // import { PlaybackIDs } from "@mux/mux-node/resources/video/playback-ids.mjs";
 
-const { Video } = new Mux({
+const { video } = new Mux({
     tokenId: process.env.MUX_TOKEN_ID!,
     tokenSecret: process.env.MUX_TOKEN_SECRET!,
 });
@@ -50,13 +50,14 @@ export async function DELETE(
                 }
 
                 if (existingMuxData){
-                    await Video.Assets.del(existingMuxData.assetId);
+                    await video.assets.delete(existingMuxData.assetId);
                     await db.muxData.delete({
                         where:{
                             id : existingMuxData.id,
                         }
                     });
                 } /* {} */
+
                 const deletedChapter = await db.chapter.delete({
                     where:{
                         id:params.chapterId,
@@ -135,7 +136,7 @@ export async function PATCH(
                 }
             });
             if (existingMuxData){
-                await Video.Assets.del(existingMuxData.assetId);
+                await video.assets.delete(existingMuxData.assetId);
                 await db.muxData.delete({
                     where: {
                         id : existingMuxData.id,
@@ -143,9 +144,9 @@ export async function PATCH(
                 });
             }
 
-            const asset = await Video.Assets.create({
+            const asset = await video.assets.create({
                 input:values.videoUrl,
-                Playback_policy:"public",
+                playback_policy: ["public"],
                 test:false,
             });
             await db.muxData.create({
