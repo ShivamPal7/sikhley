@@ -12,19 +12,18 @@ import { useConfettiStore } from "@/hooks/use-confetti-store";
 
 
 
-interface ChapterActionsProps{
+interface ActionsProps{
     disabled : boolean;
     courseId: string;
-    chapterId: string;
     isPublished: boolean;
 };
 
-export const ChapterActions =({
+export const Actions =({
     disabled,
     courseId,
     isPublished
 
-}:ChapterActionsProps)=>{
+}:ActionsProps)=>{
     const router = useRouter();
     const confetti = useConfettiStore();
     const [isLoading,setIsLoading]=useState(false);
@@ -56,7 +55,7 @@ export const ChapterActions =({
             try{
                 setIsLoading(true);
 
-                await axios.delete(`/api/course/${courseId}`);
+                await axios.delete(`/api/courses/${courseId}`);
 
                 toast.success("Course deleted ");
                 router.refresh();

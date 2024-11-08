@@ -75,7 +75,7 @@ const CourseIdPage = async ({
         <>
         {!course.isPublished&&(
             <Banner
-            label="This course is unpublished.IT will not be visible to the students."
+            label="This course is unpublished. It will not be visible to the students."
             /> 
         )}
         <div className="p-6">
@@ -86,7 +86,7 @@ const CourseIdPage = async ({
                         Complete all fields {completionText}
                     </span>
                 </div>
-                <Actions 
+                <Actions
                  disabled={!isComplete}
                  courseId={params.courseId}
                  isPublished={course.isPublished}

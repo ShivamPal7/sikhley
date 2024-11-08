@@ -17,7 +17,7 @@ export async function DELETE(
     { params }: { params: {courseId: string; chapterId: string }}
     ) {
         try{
-            const { userId }=auth();
+            const { userId }= auth();
             if(!userId){
                 return new NextResponse("Unauthorized", {status:401});
             }
