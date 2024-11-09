@@ -1,5 +1,7 @@
 import { IconBadge } from "@/components/icon-badge";
 import { db } from "@/lib/db";
+import { Banner } from "@/components/banner";
+
 import { auth } from "@clerk/nextjs/server";
 import { CircleDollarSign, File, LayoutDashboard, ListChecks } from "lucide-react";
 import { redirect } from "next/navigation";
@@ -11,6 +13,7 @@ import { PriceForm } from "./_components/price-form";
 import { AttachmentForm } from "./_components/attachment-form";
 import { ChaptersForm } from "./_components/chapters-form";
 import { DescriptionForm} from "./_components/description-form";
+
 
 
 const CourseIdPage = async ({
@@ -68,7 +71,15 @@ const CourseIdPage = async ({
 
     const completionText = `(${completedFields}/${totalFields})`;
 
+    const isComplete = requiredFields.every(Boolean);
+
     return (
+        <>
+        {!course.isPublished && (
+            <Banner 
+                label="This Course is unpublished. It Will not be visible to the students."
+            />
+        )}
         <div className="p-6">
             <div className="flex items-center justify-between">
                 <div className="flex flex-col gap-y-2">
@@ -77,6 +88,7 @@ const CourseIdPage = async ({
                         Complete all fields {completionText}
                     </span>
                 </div>
+                {/* Add Actions */}
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-16">
                 <div>
@@ -146,7 +158,7 @@ const CourseIdPage = async ({
                     </div>
                 </div>
             </div>
-        </div>
+        </div></>
     );
 }
 
