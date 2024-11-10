@@ -1,8 +1,3 @@
-<<<<<<< HEAD
-=======
-
-
->>>>>>> d6a9abe1a104fffc9a85d4fb7c6f314e0133946b
 import { db } from "@/lib/db";
 import { Chapter, Course, UserProgress } from "@prisma/client";
 import { redirect } from "next/navigation";
