@@ -1,3 +1,8 @@
+<<<<<<< HEAD
+=======
+import { auth } from "@clerk/nextjs/server";
+
+>>>>>>> d6a9abe1a104fffc9a85d4fb7c6f314e0133946b
 import { redirect } from "next/navigation";
 import { db } from "@/lib/db";
 import { getProgress } from "@/actions/get-progress";
@@ -12,7 +17,11 @@ const CourseLayout = async({
     children: React.ReactNode;
     params: { courseId:string };
 }) => {
+<<<<<<< HEAD
     const { userId } = await auth();
+=======
+    const { userId } = await auth(); 
+>>>>>>> d6a9abe1a104fffc9a85d4fb7c6f314e0133946b
     
     if (!userId){
         return redirect("/")
