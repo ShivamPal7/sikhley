@@ -5,7 +5,6 @@ import { CourseSidebarItem } from "./course-sidebar-item";
 import { auth } from "@clerk/nextjs/server";
 import { CourseProgress } from "@/components/course-progress";
 
-
 interface CourseSidebarProps{
         course:Course & {
             chapters: (Chapter & {
