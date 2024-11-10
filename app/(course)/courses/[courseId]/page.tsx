@@ -3,6 +3,9 @@ const CourseIdPage =() => {
         <div>
             Watch The course
         </div>
+
+
+       
     );
 }
 export default CourseIdPage;
