@@ -14,3 +14,14 @@ export const  Sidebar = () => {
         </div>
     );
 }
+
+{purchase && (
+    <div className="mt-10">
+        <CourseProgress
+        variant="success"
+        value={progressCount}
+        
+        />
+
+    </div>
+)}

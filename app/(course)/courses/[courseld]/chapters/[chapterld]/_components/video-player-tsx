@@ -1,0 +1,36 @@
+
+
+
+const router = useRouter();
+const confetti = useConfettiStore();
+const onEnd = async () => {
+    try {
+        if (completeOnEnd) {
+            await axios.put('/api/courses/${courseId}/chapters/${chapterId}/progress', {
+
+                isCompleted: true,
+
+            });
+
+
+            if (!nextChapterId) {
+
+
+                confetti.onOpen();
+            }
+
+            toast.success("progress updated")
+            router.refresh();
+
+
+            if (nextChapterId) {
+                router.push('/course/${courseId}/chapter/${nextChapterId}')
+            }
+
+
+        }
+
+    } catch {
+        toast.error("Someting went Wrong");
+    }
+}
