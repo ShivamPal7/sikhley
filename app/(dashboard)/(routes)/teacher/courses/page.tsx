@@ -2,11 +2,10 @@ import { DataTable } from "./_components/data-table";
 import { db } from "@/lib/db";
 import { columns } from "./_components/columns";
 import { auth } from "@clerk/nextjs/server";
-import { redirect } from "next/dist/server/api-utils";
-
+import { redirect } from "next/navigation";
 
 const CoursesPage = async () => {
- const { userId } = auth();
+ const { userId } = await auth();
 
  if (!userId) {
     return redirect("/");

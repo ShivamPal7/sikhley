@@ -1,10 +1,9 @@
-import { auth } from "@clerk/nextjs";
-
 import { redirect } from "next/navigation";
 import { db } from "@/lib/db";
 import { getProgress } from "@/actions/get-progress";
 import { CourseSidebar } from "./_components/course-sidebar";
 import { CourseNavbar } from "./_components/course-navbar";
+import { auth } from "@clerk/nextjs/server";
 
 const CourseLayout = async({
     children,
@@ -13,7 +12,7 @@ const CourseLayout = async({
     children: React.ReactNode;
     params: { courseId:string };
 }) => {
-    const { userId } = auth(); 
+    const { userId } = await auth();
     
     if (!userId){
         return redirect("/")

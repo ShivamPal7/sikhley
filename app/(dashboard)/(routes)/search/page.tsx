@@ -19,7 +19,7 @@ interface SearchPageProps{
 const SearchPage = async ({
     searchParams
 }: SearchPageProps) => {
-    const { userId } = auth();
+    const { userId } = await auth();
 
     if (!userId)
     {

@@ -7,7 +7,7 @@ export async function PUT(
     { params }: {params: {courseId: string}}
 ) {
     try {
-        const { userId } = auth();
+        const { userId } = await auth();
 
         if(!userId) {
             return new NextResponse("Unauthorized", { status: 401});

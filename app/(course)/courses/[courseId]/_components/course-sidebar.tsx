@@ -1,9 +1,8 @@
-import { auth } from "@clerk/nextjs";
-
 import { db } from "@/lib/db";
 import { Chapter, Course, UserProgress } from "@prisma/client";
 import { redirect } from "next/navigation";
 import { CourseSidebarItem } from "./course-sidebar-item";
+import { auth } from "@clerk/nextjs/server";
 
 
 interface CourseSidebarProps{
@@ -19,7 +18,7 @@ export const CourseSidebar = async( {
     course,
     progressCount,
 } : CourseSidebarProps ) =>{
-    const { userId } = auth
+    const { userId } = await auth();
 
     if(!userId){
         return redirect("/");
