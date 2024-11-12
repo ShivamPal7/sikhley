@@ -8,11 +8,11 @@ interface CourseProgressProps{
 };
 
 const colorByVariant = {
-    deafult: "text-sky-700",
+    default: "text-sky-700",
     success: "text-emerald-700",
 }
 const sizeByVariant = {
-    deafult: "text-sm",
+    default: "text-sm",
     sm: "text-xs",
 }
 
