@@ -8,6 +8,8 @@ import { GetCourses } from "@/actions/get-courses";
 import { Categories } from "./_components/categories";
 import { CoursesList } from "@/components/courses-list";
 
+export const dynamic = "force-dynamic";
+
 interface SearchPageProps{
     searchParams:{
         title: string ;
