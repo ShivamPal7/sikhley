@@ -35,11 +35,11 @@ export const CourseProgressButton = ({
         }
       );
 
-      if (isCompleted && !nextChapterId) {
+      if (!isCompleted && !nextChapterId) {
         confetti.onOpen();
       }
 
-      if (isCompleted && nextChapterId) {
+      if (!isCompleted && nextChapterId) {
         router.push(`/courses/${courseId}?chapters/${nextChapterId}`);
       }
 

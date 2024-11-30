@@ -4,6 +4,7 @@ import { redirect } from "next/navigation";
 import { CourseSidebarItem } from "./course-sidebar-item";
 import { auth } from "@clerk/nextjs/server";
 import { CourseProgress } from "@/components/course-progress";
+import { CourseSidebarCerificate } from "./course-sidebar-certificate";
 
 interface CourseSidebarProps{
         course:Course & {
@@ -59,7 +60,12 @@ export const CourseSidebar = async( {
                         isLocked = { !chapter.isFree && !purchase }
                     />
                 ))}
-
+                <CourseSidebarCerificate
+                        id="certificate"
+                        courseId={course.id}
+                        isLocked = {!purchase}
+                        label="Certificate"
+                 />
             </div>
         </div>
     )

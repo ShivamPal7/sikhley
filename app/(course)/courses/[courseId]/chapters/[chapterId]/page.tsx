@@ -8,6 +8,7 @@ import { Separator } from "@/components/ui/separator";
 import { Preview } from "@/components/preview";
 import { File } from "lucide-react";
 import { CourseProgressButton } from "./_components/course-progress-button";
+import { Button } from "@/components/ui/button";
 
 const ChapterIdPage = async ({
     params
@@ -70,9 +71,12 @@ const ChapterIdPage = async ({
                 <div>
                     <div className="p-4 flex flex-col md:flex-row items-center
                     justify-between">
-                        <h2 className="text-2xl font-semibold mb-2">
-                            {chapter.title}
-                        </h2>
+                        <div>
+                            <h2 className="text-2xl font-semibold mb-2">
+                                {chapter.title}
+                            </h2>
+                        </div>
+
                         {purchase ? (
                             <CourseProgressButton
                                 chapterId={params.chapterId}
@@ -86,12 +90,13 @@ const ChapterIdPage = async ({
                                 price={course.price!}
                             />
                         )}
+
                     </div>
                     <Separator />
                     <div>
                         <Preview value={chapter.description!} />
                     </div>
-                    {!!attachments.length &&(
+                    {!!attachments.length && (
                         <>
                             <Separator />
                             <div className="p-4">
@@ -102,16 +107,16 @@ const ChapterIdPage = async ({
                                         key={attachment.id}
                                         className="flex items-center p-3 w-full bg-sky-200 border text-sky-700 rounded-md hover:underline"
                                     >
-                                    <File />
+                                        <File />
                                         <p className="line-clamp-1">
-                                                {attachment.name}
+                                            {attachment.name}
                                         </p>
                                     </a>
-                                    ))}
+                                ))}
 
-                                </div>
-                            </>
-                        )
+                            </div>
+                        </>
+                    )
                     }
 
                 </div>
