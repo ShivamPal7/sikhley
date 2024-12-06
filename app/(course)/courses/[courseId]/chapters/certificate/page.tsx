@@ -36,15 +36,28 @@ const CertificatePage = async ({ params }: { params: { courseId: string } }) => 
                 />
             )}
 
+            {isLocked && (
+                <div className="flex flex-col max-w-4xl mx-auto pb-20">
+                    <div className="p-4">
+                        <div className='relative aspect-video'>
+                            <div className="absolute inset-0 flex items-center justify-center bg-slate-800 flex-col gap-y-2 text-secondary">
+                                <Lock className="h-8 w-8" />
+                                <p className="text-sm">Certificate is locked</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            )}
+
             {!isLocked && !isCompleted && (
                 <div className="flex flex-col max-w-4xl mx-auto pb-20">
                     <div className="p-4">
-                <div className='relative aspect-video'>
-                    <div className="absolute inset-0 flex items-center justify-center bg-slate-800 flex-col gap-y-2 text-secondary">
-                        <Lock className="h-8 w-8" />
-                        <p className="text-sm">Certificate is locked</p>
-                    </div>
-                </div>
+                        <div className='relative aspect-video'>
+                            <div className="absolute inset-0 flex items-center justify-center bg-slate-800 flex-col gap-y-2 text-secondary">
+                                <Lock className="h-8 w-8" />
+                                <p className="text-sm">Certificate is locked</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             )}

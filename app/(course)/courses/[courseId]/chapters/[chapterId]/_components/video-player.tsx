@@ -2,7 +2,9 @@
 
 import axios from "axios";
 import MuxPlayer from "@mux/mux-player-react";
-import { useState } from "react";
+import Plyr from "plyr";
+import "plyr/dist/plyr.css";
+import { useEffect, useRef, useState } from "react";
 import toast from "react-hot-toast";
 import { useRouter } from "next/navigation";
 import { Loader2, Lock } from "lucide-react";
@@ -11,7 +13,7 @@ import { cn } from "@/lib/utils";
 import { useConfettiStore } from "@/hooks/use-confetti-store";
 
 interface VideoPlayerProps {
-  playbackId: string;
+  videoUrl: string;
   courseId: string;
   chapterId: string;
   nextChapterId?: string;
@@ -21,7 +23,7 @@ interface VideoPlayerProps {
 }
 
 export const VideoPlayer = ({
-  playbackId,
+  videoUrl,
   courseId,
   chapterId,
   nextChapterId,
@@ -30,8 +32,15 @@ export const VideoPlayer = ({
   title,
 }: VideoPlayerProps) => {
   const [isReady, setIsReady] = useState(false);
+  const videoRef = useRef<HTMLVideoElement>(null);
   const router = useRouter();
   const confetti = useConfettiStore();
+
+  useEffect(() => {
+      new Plyr(videoRef.current, {
+        controls: ["play", "progress", "mute", "volume", "fullscreen", "settings", "pip", "fullscreen", ],
+      });
+  }, []);
 
   const onEnd = async () => {
     try {
@@ -72,14 +81,20 @@ export const VideoPlayer = ({
         </div>
       )}
       {!isLocked && (
-        <MuxPlayer
-          title={title}
-          className={cn(!isReady && "hidden")}
-          onCanPlay={() => setIsReady(true)}
-          onEnded={onEnd}
-          autoPlay
-          playbackId={playbackId}
-        />
+
+        <video
+              ref={videoRef}
+              className={cn(!isReady && "hidden")}
+              playsInline
+              controls
+              autoPlay
+              muted
+              onCanPlay={() => setIsReady(true)}
+              onEnded={onEnd}
+              title={title}
+            >
+              <source src={videoUrl} type="video/mp4" />
+        </video>
       )}
     </div>
   );

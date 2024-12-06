@@ -36,6 +36,7 @@
     "jspdf": "^2.5.2",
     "lucide-react": "^0.451.0",
     "next": "^14.2.15",
+    "plyr": "^3.7.8",
     "query-string": "^9.1.1",
     "react": "^18",
     "react-confetti": "^6.1.0",
