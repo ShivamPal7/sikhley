@@ -40,6 +40,8 @@ export const VideoPlayer = ({
       new Plyr(videoRef.current, {
         controls: ["play", "progress", "mute", "volume", "fullscreen", "settings", "pip", "fullscreen", ],
       });
+
+      oncanplay: setIsReady(true)
   }, []);
 
   const onEnd = async () => {
