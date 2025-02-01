@@ -61,7 +61,8 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
 
 # login cmd
 npm install @clerk/nextjs
-##🌟 Team Members 
+
+#🌟 Team Members 
 - Shivam Pal
 - Vivek Khedkar
 - Aniket Bedwal
